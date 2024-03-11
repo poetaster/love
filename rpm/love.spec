@@ -15,9 +15,8 @@ Release:    0
 Group:      Applications
 License:    ASL 2.0
 URL:        https://github.com/savegame/love/tree/sailfish
-Source0:    sailfish.tar.gz
+Source0:    %{name}-%{version}.tar.bz2
 Source1:    Love2D.permission
-Source100:  love.yaml
 Source101:  love-rpmlintrc
 Requires:   lua
 BuildRequires:  pkgconfig(freetype2)
