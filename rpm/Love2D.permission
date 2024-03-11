@@ -1,0 +1,42 @@
+# -*- mode: sh -*-
+
+# Firejail profile for /usr/bin/love
+
+# x-sailjail-translation-catalog = sailjail-permissions
+# x-sailjail-translation-key-description = permission-la-love2d
+# x-sailjail-description = Love2D game data and storage
+# x-sailjail-translation-key-long-description = permission-la-love2d_description
+# x-sailjail-long-description = Read games, store configuration and save data. Also includes Audio, Bluetooth, and Sensors permission
+
+### PERMISSIONS
+
+include /etc/sailjail/permissions/Audio.permission
+include /etc/sailjail/permissions/Bluetooth.permission
+include /etc/sailjail/permissions/Sensors.permission
+
+# Game packagers should place their .love files here:
+whitelist /usr/share/games/love
+read-only /usr/share/games/love
+
+## Loegacy location of known games by glitchapp (https://openrepos.net/user/16972/programs)
+whitelist /usr/share/VirtualInputs/
+read-only /usr/share/VirtualInputs/
+whitelist /usr/share/Boxclip/
+read-only /usr/share/Boxclip/
+whitelist /usr/share/Blockdrop/
+read-only /usr/share/Blockdrop/
+whitelist /usr/share/Gravitonik/
+read-only /usr/share/Gravitonik/
+whitelist /usr/share/Starphase/
+read-only /usr/share/Starphase/
+whitelist /usr/share/SpringScreensaver/
+read-only /usr/share/SpringScreensaver/
+whitelist /usr/share/Ladybug/
+read-only /usr/share/Ladybug/
+
+whitelist ${HOME}/.local/share/love
+whitelist ${HOME}/.cache/love
+whitelist ${HOME}/.config/love
+
+private-bin /usr/bin/love
+
