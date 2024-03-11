@@ -36,7 +36,7 @@ BuildRequires:  desktop-file-utils
 
 
 %prep
-%setup -q -n %{name}-sailfish
+%setup -q -n %{name}-%{version}
 
 # >> setup
 # << setup
