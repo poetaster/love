@@ -963,13 +963,20 @@ Type *luax_type(lua_State *L, int idx)
 	return Type::byName(luaL_checkstring(L, idx));
 }
 
-int luax_resume(lua_State *L, int nargs)
+//int luax_resume(lua_State *L, int nargs)
+int luax_resume(lua_State *L, int nargs, int* nres)
 {
-#if LUA_VERSION_NUM >= 502
+#if LUA_VERSION_NUM >= 504
+	return lua_resume(L, nullptr, nargs, nres);    
+#elif LUA_VERSION_NUM >= 502
+    LOVE_UNUSED(nres);
 	return lua_resume(L, nullptr, nargs);
 #else
+    LOVE_UNUSED(nres);
 	return lua_resume(L, nargs);
 #endif
+
+
 }
 
 } // love
